@@ -3,6 +3,8 @@
 ;; To convert this program to exe
 ;; $ raco exe c01.rkt
 
+;; #lang starts the module directive
+;; Always have #lang at the top of the file
 #lang racket
 
 (define (extract str)
