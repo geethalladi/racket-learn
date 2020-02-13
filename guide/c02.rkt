@@ -107,3 +107,8 @@
 
 ;; returns the tail of the list from the found element
 (member 4 '(1 2 3 4))
+
+(map sqrt (list 1 4 9 16))
+
+(map (λ (s) (string-append s "!"))
+     (list "peanut" "butter" "crackerjack"))
