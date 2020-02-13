@@ -156,3 +156,22 @@
        '(1 2 3 4)
        '(1 2 3 4))
 
+;; recursive definitions of length and map
+
+(define (my-length lst)
+  "My own way of computing length of the list"
+  (cond [(empty? lst) 0]
+        [else (+ 1 (my-length (rest lst)))]))
+
+(define (my-map f lst)
+  "My own way of implementing map function"
+  (cond [(empty? lst) empty]
+        [else (cons (f (first lst))
+                    (my-map f (rest lst)))]))
+
+(my-map (lambda (x) x) empty)
+
+(my-map (lambda (x) x) '(1 2 3 4))
+
+(my-map sqrt '(1 4 9 16))
+
