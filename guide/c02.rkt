@@ -137,3 +137,22 @@
      (list "peanut" "butter" "crackjack")
      (list 4 3 2))
 
+;; filtering elements from a list
+
+(filter string? (list 1 2 3 4 "abcd"))
+
+(filter positive? (list 1 2 3 4 -5))
+
+(foldl + 0 (list 0 1 2 3))
+
+;; fold left
+
+(foldl (lambda (x result) (* x result))
+       1
+       '(1 2 3 4))
+
+(foldl (lambda (a b result) (+ result (* a b)))
+       0
+       '(1 2 3 4)
+       '(1 2 3 4))
+
