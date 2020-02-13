@@ -183,3 +183,19 @@
 
 (my-map2 sqrt '(1 4 9 16))
 
+;; quoted form
+
+'my-map
+
+(define a '((1 2 3) road ("a" "b" "c")))
+
+;; car / cdr ; first / rest
+
+(car a)
+
+(car (cdr a))
+
+(cadr a)
+
+(car (cddr a))
+
