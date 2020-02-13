@@ -108,7 +108,32 @@
 ;; returns the tail of the list from the found element
 (member 4 '(1 2 3 4))
 
+;; mapping over a list
+
 (map sqrt (list 1 4 9 16))
 
-(map (λ (s) (string-append s "!"))
+;; Using lambda in map
+
+(map (lambda (s) (string-append s "!"))
      (list "peanut" "butter" "crackerjack"))
+
+;; andmap / ormap
+
+(andmap string? (list "a" "b" "c"))
+
+(andmap string? (list "a" "b" 1))
+
+(ormap number? (list "a" "b" "c"))
+
+(ormap number? (list "a" "b" "c" 1))
+
+;; mapping simultaneously over two lists
+
+(map (lambda (s n) (list s n))
+     (list "a" "b" "c")
+     (list 1 2 3))
+
+(map (lambda (s n) (substring s 0 n))
+     (list "peanut" "butter" "crackjack")
+     (list 4 3 2))
+
