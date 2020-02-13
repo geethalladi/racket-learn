@@ -1,6 +1,10 @@
 #lang racket
 
+;; defining a variable
+
 (define pie 3)
+
+;; define a function
 
 (define (piece str)
   (substring str 0 pie))
@@ -11,12 +15,16 @@
   (printf "preheating oven...\n")
   (string-append flavour " pie"))
 
+;; if condition
+
 (if (> 2 3) "hello" "world")
 
 (define (reply s)
   (if (equal? "hello" (substring s 0 5))
       "hi"
       "huh?"))
+
+;; using and / not
 
 (define (reply-more s)
   "A new function"
@@ -25,6 +33,8 @@
            (equal? (substring s 0 5) "hello"))
       "hi"
       "huh?"))
+
+;; cond form
 
 (define (reply-mode s)
   (cond [(equal? "hello" (substring s 0 5))
@@ -35,6 +45,8 @@
          "I don't know"]
         [else "thank you!"]))
 
+;; function position can have nested function call
+
 (define (double x)
   "Double the input"
   ((if (string? x) string-append +) x x))
@@ -44,13 +56,19 @@
   "Apply the function twice to the argument"
   (f (f x)))
 
+;; string-append
+
 (define (louder x)
   (string-append x "!"))
 
 (twice louder "hello")
 
+;; creating / using lambda
+
 (twice (lambda (s) (string-append s "?!"))
        "hello")
+
+;; returning a function / lambda
 
 (define (make-add-suffix s2)
   (lambda (s)
@@ -65,6 +83,8 @@
 (twice (make-add-suffix "...")
        "hello")
 
+;; inner functions
+
 (define (converse s)
   (printf "Argument is ~s\n" s)
   (define (starts? s2)
@@ -78,6 +98,8 @@
     [(starts? "goodbye") "bye!"]
     [else "huh!"]))
 
+;; let form
+
 (define (game)
   "Game of randomness"
   (let ([x (random 4)]
@@ -85,6 +107,8 @@
     (cond [(> x o) "X wins"]
           [(> o x) "O wins"]
           [else "cat's game"])))
+
+;; let* form
 
 (define (game2)
   "A better game of randomness"
@@ -95,17 +119,25 @@
           [(> o x) (string-append "O wins by " diff)]
           [else "cat's game"])))
 
+;; list creation
+
 (list "a" "b" "c")
 
 ;; extract by position
+
 (list-ref (list "a" "b" "c") 2)
+
+;; appending to a list
 
 (append (list "a" "b" "c")
         '(1 2 3 4))
 
+;; reverse a list
+
 (reverse '(1 2 3 4))
 
 ;; returns the tail of the list from the found element
+
 (member 4 '(1 2 3 4))
 
 ;; mapping over a list
