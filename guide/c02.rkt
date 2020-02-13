@@ -175,3 +175,11 @@
 
 (my-map sqrt '(1 4 9 16))
 
+;; using for/list
+
+(define (my-map2 f lst)
+  (for/list ([i lst])
+    (f i)))
+
+(my-map2 sqrt '(1 4 9 16))
+
