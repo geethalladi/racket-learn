@@ -199,3 +199,10 @@
 
 (car (cddr a))
 
+;; dotted form(s)
+
+'(1 . (2))
+
+(+ 1 . (2)) ;; (+ . (1 . (2)))
+
+(1 . < . 2) ;; allowed infix notation
